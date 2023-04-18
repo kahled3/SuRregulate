@@ -1,74 +1,92 @@
+### WhatsApp MD user bot
 
-<p align="center"> 
-<img src="https://gpvc.arturio.dev/FG98F" />
-<p/>
-<p align="center">
-<a href="https://github.com/FG98F"><img title="Author" src="https://img.shields.io/badge/DyLux Bot-black?style=for-the-badge&logo=whatsApp"></a>
-<p/>
-<p align="center">
-<a href="https://github.com/FG98F?tab=followers"><img title="Followers" src="https://img.shields.io/github/followers/FG98F?label=Followers&style=social"></a>
-<a href="https://github.com/FG98F/dylux-fg/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/FG98F/dylux-fg?&style=social"></a>
-<a href="https://github.com/FG98F/dylux-fg/network/members"><img title="Fork" src="https://img.shields.io/github/forks/FG98F/dylux-fg?style=social"></a>
-<a href="https://github.com/FG98F/dylux-fg/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/FG98F/dylux-fg?label=Watching&style=social"></a>
-</p>
+A simple Whatsapp User bot
 
+## Setup
 
+1.  ### Deploy on Heroku
+    1. Click [SCAN](https://levanter.onrender.com/md) and scan QR through Whatsapp Linked Devices Option in Your whatsapp App.
+    2. You will get a session id in whatsapp, copy id only.
+    3. If You don't have a account in [Heroku](https://signup.heroku.com/), [Create a account Now](https://signup.heroku.com/).
+    4. If You Don't have a github account [SignUp](https://github.com/join) Now.
+    5. [FORK](https://github.com/lyfe00011/whatsapp-bot-md/fork) this repo
+    6. Now [DEPLOY](https://levanter.onrender.com/dmd)
+2.  ### Deploy on koyeb
+    1. Create an account in [koyeb](https://app.koyeb.com/auth/signup). [SignUp Now](https://app.koyeb.com/auth/signup)
+    2. Get [DATABASE_URL](https://github.com/lyfe00011/whatsapp-bot-md/wiki/DATABASE_URL), You needs while depolying
+    3. Get [SESSION_ID](https://levanter.onrender.com/md), Open Linked Devices in WhatsaApp and [SCAN](https://levanter.onrender.com/md) Now.
+    4. Get Koyeb API key. [Let Go](https://app.koyeb.com/account/api)
+    5. [DEPLOY](https://levanter.onrender.com/koyeb) Now.
+    6. Enter [Environment Variables](https://github.com/lyfe00011/whatsapp-bot-md/wiki/Environment_Variables), [Read More](https://github.com/lyfe00011/whatsapp-bot-md/wiki/Environment_Variables)
+    7. Enter Name and Click Create service
+3.  ### Deploy on VPS or PC (Example here as in Ubuntu
 
-<h3 align="center">WHATSAPP BOT</h3>
+    #### Install with script
 
-***
-### Información
-- Cambie número de dueño en [Config](https://github.com/FG98F/dylux-fg/blob/main/config.js#L6)
-- Puede cambiar a la última versión de baileys editando el package.json [esta sección](https://github.com/FG98F/dylux-fg/blob/main/package.json#L42)
+    ```
+    wget -N https://www.levanter.ml/install && chmod +x install && ./install
+    ```
 
-### FREE APIKEY
--  [click aquí](https://api-fgmods.ddns.net)
+    #### Install without script
 
-### Ejemplo 
-En caso de duda, antes de instalar dylux-bot, pruebe el bot aquí
+    ###### 1. Install git ffmpeg curl
 
-[![WhatsApp](https://img.shields.io/badge/DyLux-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://instabio.cc/fg98ff) 
+          sudo apt -y update &&  sudo apt -y upgrade
+          sudo apt -y install git ffmpeg curl
 
-***
+    ###### 2. Install nodejs
 
-#### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FG98F/dylux-fg)
+          sudo apt -y remove nodejs
+          curl -fsSl https://deb.nodesource.com/setup_lts.x | sudo bash - && sudo apt -y install nodejs
 
-#### Heroku Buildpack
-| BuildPack | LINK |
-|--------|--------|
-| **FFMPEG** |[click](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest) |
-| **IMAGEMAGICK** | [click](https://github.com/DuckyTeam/heroku-buildpack-imagemagick) |
+    ###### 3. Install yarn
 
-### TERMUX
-1. 
-```sh
-$ pkg upgrade -y && pkg update -y
-$ pkg install git -y
-$ pkg install nodejs -y
-$ pkg install ffmpeg -y
-$ pkg install imagemagick -y
-$ git clone https://github.com/FG98F/dylux-fg
-$ cd dylux-fg
-$ npm i 
-$ npm start
-```
-2. Esperar a que se inicie el bot...
-3. Escanea el código QR desde el segundo dispositivo. (ir a whatsapp > Dispositivos Vinculados > Vincular un dispositivo)
----------
+          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+          echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+          sudo apt -y update && sudo apt -y install yarn
 
+    ###### 4. Install pm2
 
-## BOXMINE
+          sudo yarn global add pm2
 
-<a href="https://dash.boxmineworld.com/register?ref=Mb0BN5ny"><img src="https://k.top4top.io/p_2413wh2bh0.jpg" width="450" height="230" alt="BoxMine"/></a>
+    ###### 5. Clone Repo and install packages
 
-Instale el bot con un solo click! para que este activo 24/7
+          git clone https://github.com/lyfe00011/whatsapp-bot-md botName
+          cd botName
+          yarn install --network-concurrency 1
 
----------
-* Create una cuenta  [`aquí`](https://dash.boxmineworld.com/register?ref=Mb0BN5ny)
-* Tutorial [`Click Aquí`](https://youtu.be/xFqjKN1Qt80)
+    ###### 6. Enter Environment Variables
 
-* Dashboard [`Click aquí`](https://dash.boxmineworld.com)
-* Panel [`Click aquí`](https://panel.boxmineworld.com/)
+    ###### copy paste lines below (remove SESSION_ID if not needs)
 
----------
+          echo "SESSION_ID = Session_Id_you_Got_After_Scan_Dont_Add_This_Line_If_You_Can_Scan_From_Terminal_Itself
+          PREFIX = .
+          STICKER_PACKNAME = LyFE
+          ALWAYS_ONLINE = false
+          RMBG_KEY = null
+          LANGUAG = en
+          WARN_LIMIT = 3
+          FORCE_LOGOUT = false
+          BRAINSHOP = 159501,6pq8dPiYt7PdqHz3
+          MAX_UPLOAD = 200
+          REJECT_CALL = false
+          SUDO = 989876543210
+          TZ = Asia/Kolkata
+          VPS = true
+          AUTO_STATUS_VIEW = true
+          SEND_READ = true
+          AJOIN = true" > config.env
+
+    ###### [Read More](https://github.com/lyfe00011/whatsapp-bot-md/wiki/Environment_Variables)
+
+    ###### nano config.env, if you want edit. TO Save ctrl + o press enter then ctrl + x
+
+    ###### 7. start and stop bot
+
+          To start bot `pm2 start . --name botName --attach --time`
+          To stop bot `pm2 stop botName`
+
+### Thanks To
+
+- [Yusuf Usta](https://github.com/Quiec) for [WhatsAsena](https://github.com/yusufusta/WhatsAsena)
+- [@adiwajshing](https://github.com/adiwajshing) for [Baileys](https://github.com/adiwajshing/Baileys)
