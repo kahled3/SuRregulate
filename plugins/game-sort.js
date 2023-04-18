@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-let timeout = 60000
+let timeout = 15000
 let poin = 500
 
 let handler = async (m, { conn, usedPrefix }) => {
@@ -10,7 +10,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         conn.reply(m.chat, 'لا تزال هناك ألغاز لم تتم الإجابة عليها في هذه الدردشة ', conn.tekateki[id][0])
         throw false
     }
-    let tekateki = JSON.parse(fs.readFileSync(`./src/game/acertijo.json`))
+    let tekateki = JSON.parse(fs.readFileSync(`./src/game/sort.json`))
     let json = tekateki[Math.floor(Math.random() * tekateki.length)]
     let _clue = json.جواب
     let clue = _clue.replace(/[A-Za-z]/g, '_')
@@ -18,7 +18,6 @@ let handler = async (m, { conn, usedPrefix }) => {
 ⷮ *${json.سوال}*
 
 *• الوقت:* ${(timeout / 1000).toFixed(2)} ثانيه
-*• بونو:*كسبت +${poin} Exp
 `.trim()
     conn.tekateki[id] = [
        await conn.reply(m.chat, caption, m),
@@ -32,6 +31,6 @@ let handler = async (m, { conn, usedPrefix }) => {
 
 handler.help = ['acertijo']
 handler.tags = ['game']
-handler.command = /^(acertijo|سؤال|pregunta|adivinanza|tekateki)$/i
+handler.command = /^(رتب|تر)$/i
 
 export default handler
